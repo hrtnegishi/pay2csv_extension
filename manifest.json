@@ -1,0 +1,29 @@
+// https://developer.chrome.com/docs/extensions/mv3/manifest/
+{
+	"manifest_version": 3,
+	"name": "PayPayCard to CSV",
+	"description": "PayPayカードの利用履歴をCSV出力します",
+	"version": "1.0.0",
+	"action": {
+		"default_popup": "pay2csv.html"
+	},
+	"author": "Hiroto Negishi",
+	"permissions": [
+		"activeTab",
+		"scripting"
+		/*,
+		"clipboardWrite"
+		*/
+	],
+	"content_scripts": [
+		{
+			"matches": ["https://www.paypay-card.co.jp/member/statement/*"],
+			"js": ["pay2csv.js"]
+		}
+	]
+	/*,
+	"host_permissions": [
+		"https://www.paypay-card.co.jp/member/statement/*"
+	]
+	*/
+}
